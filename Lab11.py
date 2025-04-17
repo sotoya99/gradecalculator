@@ -22,7 +22,7 @@ class Submission:
 def get_students():
     students = {}
 
-    with open("data/data/students.txt", "r") as f:
+    with open("data/students.txt", "r") as f:
         for line in f:
             # print("Name: ", line[3:].strip())
             # print("ID: ", line[:3])
@@ -36,7 +36,7 @@ def get_assignments():
     #line 3 = point value
     assignments = {}
 
-    with open("data/data/assignments.txt", "r") as f:
+    with open("data/assignments.txt", "r") as f:
         lines = f.readlines()
 
         for i in range(0, len(lines), 3):
@@ -50,8 +50,8 @@ def get_assignments():
 def get_submissions():
     submissions = []
 
-    for filename in os.listdir("data/data/submissions"):
-        with open(f"data/data/submissions/{filename}", "r") as f:
+    for filename in os.listdir("data/submissions"):
+        with open(f"data/submissions/{filename}", "r") as f:
             student_id, assignment_id, percent_points = f.read().split("|")
             submissions.append(Submission(student_id, assignment_id, percent_points))
 
